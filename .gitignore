@@ -1,0 +1,5 @@
+.env
+*.txt
+*.enc
+*.7z
+*.pdf

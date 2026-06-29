@@ -1,0 +1,9 @@
+FROM vaultwarden/server:latest
+
+ENV SIGNUPS_ALLOWED=false
+ENV WEBSOCKET_ENABLED=true
+ENV LOG_LEVEL=warn
+
+VOLUME /data
+
+EXPOSE 80 3012
