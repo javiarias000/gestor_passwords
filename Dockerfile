@@ -1,9 +1,14 @@
-FROM vaultwarden/server:latest
+FROM node:20-alpine
 
-ENV SIGNUPS_ALLOWED=false
-ENV WEBSOCKET_ENABLED=true
-ENV LOG_LEVEL=warn
+WORKDIR /app
 
-VOLUME /data
+COPY package.json .
+RUN npm install --production
 
-EXPOSE 80 3012
+COPY server.js .
+
+RUN mkdir -p /data
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]
